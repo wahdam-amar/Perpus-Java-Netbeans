@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4bf2fa01-f2f2-4310-a048-cbe562822f7a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="2"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="128" y="16" width="300" height="41" uuid="22637cbb-d014-42f4-b298-ee6e5bd0b206"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SMP NEGERI 23 DEPOK]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="406" splitType="Stretch">
+			<staticText>
+				<reportElement x="143" y="11" width="285" height="28" uuid="3934726b-dde1-43d2-826d-b766266e2df8"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[BUKTI PENGEMBALIAN BUKU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="55" width="138" height="20" uuid="14c93771-f1e9-489f-888e-19bc9d7a50f1"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="94" width="138" height="20" uuid="b4aeac22-7ce3-4cba-b6b9-d8dcaf52c57e"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID PENGEMBALIAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="135" width="138" height="20" uuid="12bb6390-7087-4387-9f33-02034ff80e7a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BUKU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="173" width="138" height="20" uuid="9241a8f1-b8d2-4427-9bfc-7f619008fdd0"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUMLAH ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="209" width="138" height="20" uuid="731f1538-f84c-4658-9c2a-c0c28569122b"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL KEMBALI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="274" width="39" height="20" uuid="1610a9ef-30ae-42a9-be35-7a67f2120db4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPOK, ]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="443" y="274" width="100" height="20" uuid="6b6b0ff5-b971-4089-b034-d2a7a3817ae6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="397" y="354" width="146" height="17" uuid="5eb258be-cd75-4400-83fa-ff5bcb1e838e"/>
+				<text><![CDATA[KEPALA PERPUSTAKAAN]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

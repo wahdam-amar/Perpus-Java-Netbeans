@@ -160,6 +160,7 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
             }
         });
 
+        kembali.setEditable(false);
         kembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 kembaliActionPerformed(evt);
@@ -324,10 +325,6 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_siswaActionPerformed
 
-    private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_kembaliActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             // TODO add your handling code here:
     insert();
@@ -370,6 +367,10 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
                 Logger.getLogger(PENGEMBALIAN.class.getName()).log(Level.SEVERE, null, ex);
             }
     }//GEN-LAST:event_pinjamActionPerformed
+
+    private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kembaliActionPerformed
 
     /**
      * @param args the command line arguments

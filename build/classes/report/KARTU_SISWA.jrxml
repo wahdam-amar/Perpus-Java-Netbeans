@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="55908c95-cac2-4cf0-b5f4-038fec12488a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="137" y="14" width="334" height="49" uuid="b6a6b1ad-125f-465a-a31e-09fa547b00e5"/>
+				<textElement>
+					<font fontName="Times New Roman" size="28" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SMP NEGERI 23 DEPOK]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="203" splitType="Stretch">
+			<rectangle>
+				<reportElement x="10" y="6" width="533" height="189" uuid="5df7ded4-d74d-44ae-8c32-fee9609d9257"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="34" y="61" width="103" height="20" uuid="7b089aef-57b6-449e-8256-4993901988a4"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="108" width="103" height="20" uuid="cd66059a-9ebb-4552-a441-db82f14242bf"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="155" width="103" height="20" uuid="1d95328e-ca10-4567-b7ef-a86d0943536b"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KELAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="12" width="289" height="35" uuid="dc12a5ed-036b-407f-bc8e-b34113e314eb"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KARTU ANGGOTA PERPUSTAKAAN]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
