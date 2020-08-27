@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4bf2fa01-f2f2-4310-a048-cbe562822f7a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="2"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="ID" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+D.nama,
+B.id,
+C.judul,
+B.jml_kembali,
+DATE_FORMAT(B.tgl_kembali, "%d/%m/%Y") AS tgl_kembali
+FROM
+PEMINJAMAN A
+INNER JOIN PENGEMBALIAN B ON A.id=B.id_pinjam
+INNER JOIN BUKU C ON C.id=A.id_buku
+INNER JOIN SISWA D ON D.id=A.id_buku
+WHERE B.ID=$P{ID}]]>
+	</queryString>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="judul" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jml_kembali" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_kembali" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -82,6 +112,26 @@
 				<reportElement x="397" y="354" width="146" height="17" uuid="5eb258be-cd75-4400-83fa-ff5bcb1e838e"/>
 				<text><![CDATA[KEPALA PERPUSTAKAAN]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="220" y="55" width="100" height="20" uuid="dca52495-8bc7-4308-91a2-be42c964413c"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="94" width="100" height="20" uuid="5b0c61dc-dfb1-4135-b406-e037ff189caa"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="135" width="100" height="20" uuid="5a9733f3-8a0a-47f1-8ba9-d33b5de125bd"/>
+				<textFieldExpression><![CDATA[$F{judul}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="173" width="100" height="20" uuid="6e1894ce-0151-41b7-af35-8de1f48750ff"/>
+				<textFieldExpression><![CDATA[$F{jml_kembali}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="209" width="100" height="20" uuid="7fdc872b-6079-47cd-ab4c-b4a25fd4bdfe"/>
+				<textFieldExpression><![CDATA[$F{tgl_kembali}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

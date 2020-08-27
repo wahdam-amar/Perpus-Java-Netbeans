@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import perpustakaan.DB;
+import perpustakaan.REPORT;
 
 /**
  *
@@ -23,6 +24,9 @@ public class SISWA extends javax.swing.JFrame {
      * Creates new form SISWA
      * @return 
      */
+    
+        REPORT cetak = new perpustakaan.REPORT();
+    
         public String thn() {
         Date dateFromDateChooser =  jDateChooser1.getDate();
         String dateString = String.format("%1$tY-%1$tm-%1$td", dateFromDateChooser);
@@ -135,6 +139,7 @@ public class SISWA extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jButton5 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -223,6 +228,13 @@ public class SISWA extends javax.swing.JFrame {
 
         jDateChooser1.setDateFormatString("yyyy/MM/dd");
 
+        jButton5.setText("CETAK");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -237,6 +249,8 @@ public class SISWA extends javax.swing.JFrame {
                         .addComponent(jButton2)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addGap(31, 31, 31))
@@ -318,7 +332,8 @@ public class SISWA extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton4)
-                    .addComponent(jButton3))
+                    .addComponent(jButton3)
+                    .addComponent(jButton5))
                 .addContainerGap())
         );
 
@@ -374,6 +389,11 @@ public class SISWA extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "DATA BERHASIL DI HAPUS");
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+            // TODO add your handling code here:
+            cetak.cetak("KARTU_SISWA", id.getText());
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -416,6 +436,7 @@ public class SISWA extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

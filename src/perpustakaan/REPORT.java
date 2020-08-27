@@ -60,6 +60,30 @@ public void cetak(String path){
         
     }    
 
+public void cetak(String path, String param){
+      //public Fungsi_Cetak(String namaReport);
+      //conn1 = Koneksi.KoneksiDB.ConnectDb();
+          try{
+                String namaFile = "/report/"+path+".jasper";
+                HashMap hash = new HashMap();
+                hash.put("ID", param);
+                //File file = new File(namaFile);
+                
+               //JasperReport jasperReport = (JasperReport)JRLoader.loadObject(file.getPath());
+               InputStream file=getClass().getResourceAsStream(namaFile);
+                //JasperDesign jasperDesign=JRXmlLoader.load(file);
+                //JasperReport jasperReport=JasperCompileManager.compileReport(jasperDesign); 
+               JasperPrint jasperPrint = JasperFillManager.fillReport(file,hash,DB.conn);
+            JasperViewer.viewReport(jasperPrint, false);      
+            }
+            catch(JRException ex){
+               // JOptionPane.showMessageDialog(rootPane,"Dokumen Tidak Ada");
+                System.out.print(ex);
+            }
+           
+        
+    }
+
     public REPORT() {
         System.out.print("ASD");
     }

@@ -3,17 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/FORM/PEMINJAMAN.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/FORM/SUMBER_DANA.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/FORM/BUKU.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/FORM/PENGARANG.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/FORM/DAFTAR_ADMIN.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/FORM/KATEGORI.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/FORM/PENGEMBALIAN.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/DB.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/FORM/SISWA.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/FORM/LOGIN.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/perpustakaan/FORM/PENERBIT.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/report/BUKTI_PEMINJAMAN.jrxml</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/PERPUSTAKAAN/src/report/BUKTI_PENGEMBALIAN.jrxml</file>
         </group>
     </open-files>
 </project-private>
