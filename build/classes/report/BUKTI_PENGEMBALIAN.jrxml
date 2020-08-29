@@ -38,13 +38,10 @@ WHERE B.ID=$P{ID}]]>
 	</background>
 	<title>
 		<band height="64" splitType="Stretch">
-			<staticText>
-				<reportElement x="128" y="16" width="300" height="41" uuid="22637cbb-d014-42f4-b298-ee6e5bd0b206"/>
-				<textElement>
-					<font size="26" isBold="true"/>
-				</textElement>
-				<text><![CDATA[SMP NEGERI 23 DEPOK]]></text>
-			</staticText>
+			<image>
+				<reportElement x="115" y="-12" width="328" height="76" uuid="654683b0-eb7f-4a5f-9f61-729c5bc99eee"/>
+				<imageExpression><![CDATA[getClass().getResource("/IMAGES/Capture.jpg").openStream()]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

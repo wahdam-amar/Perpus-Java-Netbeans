@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="55908c95-cac2-4cf0-b5f4-038fec12488a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="71"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
@@ -43,13 +43,10 @@ WHERE id=$P{ID}]]>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<staticText>
-				<reportElement x="137" y="14" width="334" height="49" uuid="b6a6b1ad-125f-465a-a31e-09fa547b00e5"/>
-				<textElement>
-					<font fontName="Times New Roman" size="28" isBold="true"/>
-				</textElement>
-				<text><![CDATA[SMP NEGERI 23 DEPOK]]></text>
-			</staticText>
+			<image>
+				<reportElement x="123" y="0" width="328" height="76" uuid="8ef801c8-344b-4bdf-887e-1f1aa27cef1b"/>
+				<imageExpression><![CDATA[getClass().getResource("/IMAGES/Capture.jpg").openStream()]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

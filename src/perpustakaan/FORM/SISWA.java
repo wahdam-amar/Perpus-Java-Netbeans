@@ -8,6 +8,7 @@ package perpustakaan.FORM;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -26,15 +27,28 @@ public class SISWA extends javax.swing.JFrame {
      */
     
         REPORT cetak = new perpustakaan.REPORT();
+        HashMap<String, String> waliKelas = new HashMap<>();
     
         public String thn() {
         Date dateFromDateChooser =  jDateChooser1.getDate();
         String dateString = String.format("%1$tY-%1$tm-%1$td", dateFromDateChooser);
         return dateString;
     }
+        
+    public void setCombo() throws SQLException{
+        waliKelas.clear();
+        jComboBox1.removeAllItems();
+        ResultSet select = DB.select("wali_kelas", "id,nama");
+        while(select.next()){
+        String value=select.getString(1);
+        String label=select.getString(2);
+        waliKelas.put(label, value);
+        jComboBox1.addItem(label);
+        }; 
+    }        
     public void insert(){
         String sql = "INSERT INTO `siswa`(`id`, `nama`, `alamat`, `kelas`, `jenis_kelamin`, `nis`, `telp`, `tmpt_tgl_lahir`, `id_wali`) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s')";
-        sql = String.format(sql, id.getText(), nama.getText(), alamat.getText(),kelas.getText(),jk.getText(),nis.getText(),telp.getText(),thn(),wk.getText());
+        sql = String.format(sql, id.getText(), nama.getText(), alamat.getText(),kelas.getText(),jk.getText(),nis.getText(),telp.getText(),thn(),wali());
         System.out.print(sql);
         DB.insert(sql);
     }
@@ -46,9 +60,13 @@ public class SISWA extends javax.swing.JFrame {
         DB.delete(sql);
     }
     
+    public String wali(){
+        return waliKelas.get(jComboBox1.getSelectedItem().toString());
+    }
+    
     public void edit(){
         String sql="UPDATE `siswa` SET `nama`='%s',`alamat`='%s',`kelas`='%s',`jenis_kelamin`='%s',`nis`='%s',`telp`='%s',`tmpt_tgl_lahir`='%s',`id_wali`='%s' WHERE id='%s'";
-        sql = String.format(sql, nama.getText(),alamat.getText(),kelas.getText(),jk.getText(),nis.getText(),telp.getText(),thn(),wk.getText(),id.getText());
+        sql = String.format(sql, nama.getText(),alamat.getText(),kelas.getText(),jk.getText(),nis.getText(),telp.getText(),thn(),wali(),id.getText());
         DB.update(sql);
     }
     
@@ -58,6 +76,7 @@ public class SISWA extends javax.swing.JFrame {
     private void setId() throws SQLException{
         int total;
         ResultSet select = DB.select("siswa", "max(id)");
+        setCombo();
         if (select.next() == false) {
             System.out.println("ResultSet in empty in Java");
             total=1;
@@ -76,7 +95,7 @@ public class SISWA extends javax.swing.JFrame {
         nis.setText("");
         alamat.setText("");
         telp.setText("");
-        wk.setText("");
+        
        
     }
     
@@ -128,7 +147,6 @@ public class SISWA extends javax.swing.JFrame {
         kelas = new javax.swing.JTextField();
         nis = new javax.swing.JTextField();
         telp = new javax.swing.JTextField();
-        wk = new javax.swing.JTextField();
         jk = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         alamat = new javax.swing.JTextArea();
@@ -140,6 +158,7 @@ public class SISWA extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton5 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -235,6 +254,8 @@ public class SISWA extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -271,11 +292,11 @@ public class SISWA extends javax.swing.JFrame {
                             .addComponent(kelas, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                             .addComponent(id, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                             .addComponent(nama, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                            .addComponent(wk, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(telp, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nis, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -317,14 +338,11 @@ public class SISWA extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(telp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel9))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(wk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(36, 36, 36))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane3)
                         .addGap(35, 35, 35)))
@@ -437,6 +455,7 @@ public class SISWA extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -457,6 +476,5 @@ public class SISWA extends javax.swing.JFrame {
     private javax.swing.JTextField nama;
     private javax.swing.JTextField nis;
     private javax.swing.JTextField telp;
-    private javax.swing.JTextField wk;
     // End of variables declaration//GEN-END:variables
 }

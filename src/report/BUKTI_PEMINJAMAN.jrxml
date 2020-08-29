@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="15aeaddd-b653-40fe-a0e6-73a4e67fd304">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="144"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="ID" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT a.id, b.nama, c.judul, a.jumlah_pinjam, a.tgl_pinjam FROM peminjaman a inner join siswa b on a.id_siswa=b.id inner JOIN buku c ON c.id=a.id_buku
@@ -28,13 +28,10 @@ WHERE a.id=$P{ID}]]>
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<staticText>
-				<reportElement x="138" y="26" width="300" height="41" uuid="197f6ec2-3838-4628-b1cc-13ca501397bd"/>
-				<textElement>
-					<font size="26" isBold="true"/>
-				</textElement>
-				<text><![CDATA[SMP NEGERI 23 DEPOK]]></text>
-			</staticText>
+			<image>
+				<reportElement x="84" y="1" width="390" height="78" uuid="2f2a43c6-9ef3-481f-a329-55a76457d67d"/>
+				<imageExpression><![CDATA[getClass().getResource("/IMAGES/Capture.jpg").openStream()]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>

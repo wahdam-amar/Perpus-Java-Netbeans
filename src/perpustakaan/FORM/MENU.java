@@ -5,6 +5,9 @@
  */
 package perpustakaan.FORM;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.net.URL;
 import perpustakaan.DB;
 import perpustakaan.PERPUSTAKAAN;
 import perpustakaan.REPORT;
@@ -57,6 +60,7 @@ public class MENU extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -195,6 +199,14 @@ public class MENU extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem9);
 
+        jMenuItem11.setText("DATA ANGGOTA");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem11);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -314,6 +326,13 @@ public class MENU extends javax.swing.JFrame {
         cetak.cetak("PENGEMBALIAN");
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+
+
+        cetak.cetak("LAPORAN_DATA_ANGGOTA");
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -362,6 +381,7 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;

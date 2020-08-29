@@ -23,8 +23,10 @@ public class LOGIN extends javax.swing.JFrame {
     /**
      * Creates new form FORM_LOGIN
      */
+    DB DB = new DB(); 
     public LOGIN() {
-        DB DB = new DB();   
+         
+        DB.start();
         initComponents();
     }
 
@@ -38,6 +40,7 @@ public class LOGIN extends javax.swing.JFrame {
     
     public void btnLogin(){
         ResultSet rs = DB.select("admin", "*", "username='"+getjTextField1()+"' and password='"+getjPasswordField1()+"'");
+        System.out.print(getjTextField1()+" "+getjPasswordField1());
         try {
             if(rs.next()){
                 if(getjTextField1().equals(rs.getString("username")) && getjPasswordField1().equals(rs.getString("password"))){
@@ -67,7 +70,6 @@ public class LOGIN extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
@@ -108,13 +110,6 @@ public class LOGIN extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.setBackground(new java.awt.Color(153, 51, 255));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,13 +130,11 @@ public class LOGIN extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(46, 46, 46))
-            .addComponent(jTextField2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -181,10 +174,6 @@ public class LOGIN extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_jPasswordField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,6 +217,5 @@ public class LOGIN extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,8 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="11"/>
 	<queryString>
-		<![CDATA[SELECT a.id, c.nama, b.judul, a.jumlah_pinjam, a.tgl_pinjam, a.status FROM peminjaman a INNER JOIN buku b on a.id_buku=b.id INNER JOIN siswa c on a.id_siswa=c.id
-]]>
+		<![CDATA[SELECT a.id, c.nama, b.judul, a.jumlah_pinjam, a.tgl_pinjam, a.status FROM peminjaman a INNER JOIN buku b on a.id_buku=b.id INNER JOIN siswa c on a.id_siswa=c.id]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -29,18 +28,23 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="76" splitType="Stretch">
+			<image>
+				<reportElement x="123" y="0" width="328" height="76" uuid="4af8a71e-5042-477c-b1e1-817617e23bfd"/>
+				<imageExpression><![CDATA[getClass().getResource("/IMAGES/Capture.jpg").openStream()]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
 			<staticText>
-				<reportElement x="131" y="15" width="292" height="49" uuid="efe3adaa-9e85-4e00-9879-7d2f9f66867b"/>
+				<reportElement x="130" y="0" width="292" height="40" uuid="efe3adaa-9e85-4e00-9879-7d2f9f66867b"/>
 				<textElement>
 					<font size="24" isBold="true"/>
 				</textElement>
 				<text><![CDATA[LAPORAN PEMINJAMAN]]></text>
 			</staticText>
 		</band>
-	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
 		<band height="61" splitType="Stretch">
