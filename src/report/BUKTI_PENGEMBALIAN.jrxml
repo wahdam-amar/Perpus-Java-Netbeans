@@ -15,7 +15,7 @@ FROM
 PEMINJAMAN A
 INNER JOIN PENGEMBALIAN B ON A.id=B.id_pinjam
 INNER JOIN BUKU C ON C.id=A.id_buku
-INNER JOIN SISWA D ON D.id=A.id_buku
+INNER JOIN SISWA D ON D.id=A.id_siswa
 WHERE B.ID=$P{ID}]]>
 	</queryString>
 	<field name="nama" class="java.lang.String">
