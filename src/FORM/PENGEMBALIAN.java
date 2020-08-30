@@ -5,14 +5,15 @@
  */
 package FORM;
 
+import UTIL.DB;
+import UTIL.REPORT;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import perpustakaan.DB;
-import perpustakaan.REPORT;
+
 
 /**
  *
@@ -26,7 +27,7 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
 
     String[] judul={"ID","Id Peminjaman","Nama","Buku","Jumlah","Tanggal Kembali","Status"};
     ResultSet rs;
-    REPORT cetak = new perpustakaan.REPORT();
+    REPORT cetak = new REPORT();
     
         private void setTable(){
         rs = DB.select("SELECT\n" +

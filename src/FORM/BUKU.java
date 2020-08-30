@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import perpustakaan.DB;
+import UTIL.DB;
 
 /**
  *

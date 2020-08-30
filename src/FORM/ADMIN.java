@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
-import perpustakaan.DB;
+import UTIL.DB;
 
 /**
  *
@@ -23,6 +23,8 @@ public class ADMIN extends javax.swing.JFrame {
      */
     String[] judul = {"Id", "Username", "Nama", "Email", "Telepon", "Alamat"};
 
+    
+    
     public ADMIN() {
         initComponents();
         DB.start();

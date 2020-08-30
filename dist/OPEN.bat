@@ -1,1 +1,0 @@
-java -jar "C:\Users\User\Documents\NetBeansProjects\PERPUSTAKAAN\dist\PERPUSTAKAAN.jar"

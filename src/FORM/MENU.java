@@ -8,9 +8,9 @@ package FORM;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
-import perpustakaan.DB;
-import perpustakaan.PERPUSTAKAAN;
-import perpustakaan.REPORT;
+import UTIL.DB;
+import UTIL.PERPUSTAKAAN;
+import UTIL.REPORT;
 
 /**
  *
@@ -22,7 +22,8 @@ public class MENU extends javax.swing.JFrame {
      * Creates new form MENU
      */
     PERPUSTAKAAN pt = new PERPUSTAKAAN();
-    REPORT cetak = new perpustakaan.REPORT();
+
+    REPORT cetak = new REPORT();
     public MENU() {
         initComponents();
         jLabel1.setText(PERPUSTAKAAN.name);
@@ -361,7 +362,7 @@ public class MENU extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        DB.start();
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MENU().setVisible(true);

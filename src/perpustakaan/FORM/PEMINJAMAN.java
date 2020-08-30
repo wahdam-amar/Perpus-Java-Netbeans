@@ -15,8 +15,8 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import perpustakaan.DB;
-import perpustakaan.REPORT;
+import UTIL.DB;
+import UTIL.REPORT;
 
 /**
  *
@@ -30,7 +30,7 @@ public class PEMINJAMAN extends javax.swing.JFrame {
     
     String[] judul = {"Id Peminjaman", "Nama", "Buku","Jumlah", "Tanggal Pinjam"};
     ResultSet rs;
-    REPORT cetak = new perpustakaan.REPORT();
+    REPORT cetak = new REPORT();
     
             private void setTable(){
         rs = DB.select("SELECT\n" +

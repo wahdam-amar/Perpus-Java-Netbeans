@@ -9,6 +9,8 @@ import FORM.ADMIN;
 import FORM.KATEGORI;
 import FORM.MENU;
 import FORM.PENERBIT;
+import UTIL.DB;
+import UTIL.REPORT;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
@@ -16,8 +18,7 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import perpustakaan.DB;
-import perpustakaan.REPORT;
+
 
 /**
  *
@@ -30,7 +31,7 @@ public class SISWA extends javax.swing.JFrame {
      * @return 
      */
     
-        REPORT cetak = new perpustakaan.REPORT();
+        REPORT cetak = new REPORT();
         HashMap<String, String> waliKelas = new HashMap<>();
     
         public String thn() {

@@ -17,8 +17,8 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import perpustakaan.DB;
-import perpustakaan.REPORT;
+import UTIL.DB;
+import UTIL.REPORT;
 
 /**
  *
@@ -31,7 +31,7 @@ public class SISWA extends javax.swing.JFrame {
      * @return 
      */
     
-        REPORT cetak = new perpustakaan.REPORT();
+        REPORT cetak = new REPORT();
         HashMap<String, String> waliKelas = new HashMap<>();
     
         public String thn() {
