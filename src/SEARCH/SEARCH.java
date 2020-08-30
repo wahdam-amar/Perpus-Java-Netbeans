@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
 import perpustakaan.DB;
-import perpustakaan.FORM.ADMIN;
+import FORM.ADMIN;
 
 /**
  *

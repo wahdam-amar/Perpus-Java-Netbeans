@@ -76,7 +76,7 @@ public class MENU extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("NPSN");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FORM/IMAGES/sekolah.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/perpustakaan/FORM/IMAGES/sekolah.jpg"))); // NOI18N
 
         jMenu4.setText("ADMIN");
         jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
