@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package perpustakaan;
+package UTIL;
 
 /**
  *
@@ -14,9 +14,9 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import perpustakaan.DB;
-import static perpustakaan.DB.buildTableModel;
-import static perpustakaan.DB.rs;
+import UTIL.DB;
+import static UTIL.DB.buildTableModel;
+import static UTIL.DB.rs;
 
 public class test {
 
