@@ -18,6 +18,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import UTIL.DB;
 import UTIL.REPORT;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -29,21 +31,12 @@ public class PEMINJAMAN extends javax.swing.JFrame {
      * Creates new form PEMINJAMAN
      */
     
-    String[] judul = {"Id Peminjaman", "Nama", "Buku","Jumlah", "Tanggal Pinjam"};
+    String[] judul = {"Id Peminjaman", "Jumlah", "Tanggal Pinjam","Tanggal Harus Kembali", "Nama","Judul"};
     ResultSet rs;
     REPORT cetak = new REPORT();
     
             private void setTable(){
-        rs = DB.select("SELECT\n" +
-"a.id,\n" +
-"upper(b.nama),\n" +
-"c.judul,\n" +
-"a.jumlah_pinjam,\n" +
-"a.tgl_pinjam\n" +
-"FROM\n" +
-"peminjaman a\n" +
-"INNER JOIN siswa b on a.id_siswa=b.id\n" +
-"INNER JOIN buku c on a.id_buku=c.id");
+        rs = DB.select("SELECT A.id, A.jumlah_pinjam, A.tgl_pinjam, A.tgl_harus_kembali, B.nama, C.judul FROM peminjaman A INNER JOIN siswa B ON B.id=A.id_siswa INNER JOIN buku C ON C.id=A.id_buku");
         try {
         jTable1.setModel(DB.buildTableModel(rs));
         DB.ChangeName(jTable1, judul);
@@ -53,17 +46,23 @@ public class PEMINJAMAN extends javax.swing.JFrame {
         }
     }
     
-                public String thn() {
-        Date dateFromDateChooser =  jDateChooser1.getDate();
+    public String tglKembali() {
+        Date dateFromDateChooser =  tgl_pinjam.getDate();
         String dateString = String.format("%1$tY-%1$tm-%1$td", dateFromDateChooser);
         return dateString;
     }
+    
+    public String tglHarusKembali() {
+        Date dateFromDateChooser =  tgl_kembali.getDate();
+        String dateString = String.format("%1$tY-%1$tm-%1$td", dateFromDateChooser);
+        return dateString;
+    }    
             
     public void insert(){
-       DB.closeConn();
        DB.start();
-        String sql = "INSERT INTO `peminjaman`(`id`, `jumlah_pinjam`, `tgl_pinjam`, `id_buku`, `id_siswa`,`status`) VALUES ('%s','%s','%s','%s','%s','BELUM KEMBALI')";
-        sql = String.format(sql, id.getText(), jumlah.getText(), thn(), buku.getText(), siswa.getText());
+        System.out.print(tglHarusKembali()+" "+tglKembali());
+        String sql = "INSERT INTO `peminjaman`(`id`, `jumlah_pinjam`, `tgl_pinjam`, `tgl_harus_kembali`, `id_buku`, `id_siswa`, `status`) VALUES ('%s','%s','%s','%s','%s','%s','%s')";
+        sql = String.format(sql, id.getText(), jumlah.getText(), tglKembali(), tglHarusKembali(), buku.getText(), siswa.getText(), "BELUM KEMBALI");
         System.out.print(sql);
         DB.insert(sql);
     }
@@ -76,8 +75,8 @@ public class PEMINJAMAN extends javax.swing.JFrame {
     }
     
     public void edit(){
-        String sql="UPDATE `peminjaman` SET `jumlah_pinjam`='%s',`tgl_pinjam`='%s',`id_buku`='%s',`id_siswa`='%s' WHERE `id`='%s'";
-        sql = String.format(sql, jumlah.getText(),thn(),buku.getText(),siswa.getText(),id.getText());
+        String sql="UPDATE `peminjaman` SET `jumlah_pinjam`='%s',`tgl_pinjam`='%s', tgl_harus_kembali='%s', `id_buku`='%s',`id_siswa`='%s' WHERE `id`='%s'";
+        sql = String.format(sql, jumlah.getText(),tglKembali(),tglHarusKembali(),buku.getText(),siswa.getText(),id.getText());
         DB.update(sql);
     }
     
@@ -136,9 +135,11 @@ public class PEMINJAMAN extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        tgl_pinjam = new com.toedter.calendar.JDateChooser();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        tgl_kembali = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PEMINJAMAN");
@@ -199,9 +200,10 @@ public class PEMINJAMAN extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setGridColor(new java.awt.Color(0, 102, 102));
         jScrollPane1.setViewportView(jTable1);
 
-        jDateChooser1.setDateFormatString("dd/MM/yyyy");
+        tgl_pinjam.setDateFormatString("dd/MM/yyyy");
 
         jButton5.setText("CETAK");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -216,6 +218,10 @@ public class PEMINJAMAN extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+
+        jLabel5.setText("Tanggal Harus Kembali");
+
+        tgl_kembali.setDateFormatString("dd/MM/yyyy");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -233,17 +239,19 @@ public class PEMINJAMAN extends javax.swing.JFrame {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel6)
-                                    .addComponent(jLabel7))
-                                .addGap(65, 65, 65)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel5))
+                                .addGap(29, 29, 29)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(id)
                                     .addComponent(jumlah)
                                     .addComponent(siswa)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tgl_pinjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(buku, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(tgl_kembali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -276,8 +284,12 @@ public class PEMINJAMAN extends javax.swing.JFrame {
                                     .addComponent(jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel3))
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
+                            .addComponent(tgl_pinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(tgl_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
                         .addComponent(jLabel4)
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -407,16 +419,18 @@ public class PEMINJAMAN extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jumlah;
     private javax.swing.JTextField siswa;
+    private com.toedter.calendar.JDateChooser tgl_kembali;
+    private com.toedter.calendar.JDateChooser tgl_pinjam;
     // End of variables declaration//GEN-END:variables
 }

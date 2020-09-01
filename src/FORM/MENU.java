@@ -26,7 +26,7 @@ public class MENU extends javax.swing.JFrame {
     REPORT cetak = new REPORT();
     public MENU() {
         initComponents();
-        jLabel1.setText(PERPUSTAKAAN.name);
+        jLabel1.setText(PERPUSTAKAAN.name); //nama
         jLabel2.setText(PERPUSTAKAAN.alamat);
         jLabel3.setText(PERPUSTAKAAN.npsn);
     }
