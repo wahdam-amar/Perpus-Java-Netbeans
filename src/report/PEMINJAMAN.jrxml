@@ -2,9 +2,13 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9cdba60b-5868-4095-bab8-0de50484e3fc">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="11"/>
+	<property name="ireport.y" value="58"/>
+	<parameter name="ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
-		<![CDATA[SELECT a.id, c.nama, b.judul, a.jumlah_pinjam, a.tgl_pinjam, a.status FROM peminjaman a INNER JOIN buku b on a.id_buku=b.id INNER JOIN siswa c on a.id_siswa=c.id]]>
+		<![CDATA[SELECT a.id, c.nama, b.judul, a.jumlah_pinjam, a.tgl_pinjam, a.status FROM peminjaman a INNER JOIN buku b on a.id_buku=b.id INNER JOIN siswa c on a.id_siswa=c.id
+where $P!{ID}]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>

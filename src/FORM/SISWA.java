@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import UTIL.DB;
 import UTIL.REPORT;
+import java.util.Locale;
 
 /**
  *
@@ -129,6 +130,8 @@ public class SISWA extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(PENERBIT.class.getName()).log(Level.SEVERE, null, ex);
         }
+                        Locale locale = new Locale ("id", "ID"); 
+        Locale.setDefault(locale); 
     }
 
     /**

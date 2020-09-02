@@ -35,7 +35,7 @@ public class PEMINJAMAN extends javax.swing.JFrame {
     ResultSet rs;
     REPORT cetak = new REPORT();
     
-            private void setTable(){
+    private void setTable(){
         rs = DB.select("SELECT A.id, A.jumlah_pinjam, A.tgl_pinjam, A.tgl_harus_kembali, B.nama, C.judul FROM peminjaman A INNER JOIN siswa B ON B.id=A.id_siswa INNER JOIN buku C ON C.id=A.id_buku");
         try {
         jTable1.setModel(DB.buildTableModel(rs));

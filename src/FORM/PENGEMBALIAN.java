@@ -10,6 +10,7 @@ import UTIL.REPORT;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -25,11 +26,20 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
      * Creates new form PENGEMBALIAN
      */
 
-    String[] judul={"ID","Id Peminjaman","Nama","Buku","Jumlah","Tanggal Kembali","Status"};
+    String[] judul={"ID","Id Peminjaman","Nama","Buku","Jumlah","Tanggal Kembali","Status","Denda"};
     ResultSet rs;
     REPORT cetak = new REPORT();
     
-        private void setTable(){
+    public void clear(){
+        pinjam.setText("");
+        buku.setText("");
+        siswa.setText("");
+        bukukembali.setText("");
+        status.setText("");
+        denda.setText("");
+    }
+    
+    private void setTable(){
         rs = DB.select("SELECT\n" +
 "a.id,\n" +
 "b.id,\n" +
@@ -37,7 +47,8 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
 "c.judul,\n" +
 "b.jumlah_pinjam,\n" +
 "a.tgl_kembali,\n" +
-"a.status\n" +
+"a.status,\n" +
+"a.denda\n" +                
 "FROM\n" +
 "pengembalian a \n" +
 "INNER JOIN peminjaman b on b.id=a.id_pinjam\n" +
@@ -53,8 +64,8 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
     }
     
         public void insert(){
-        String sql = "INSERT INTO `pengembalian`(`id`, `id_pinjam`, `tgl_kembali`, `jml_kembali`, `status`) VALUES ('%s','%s','%s','%s','SUDAH KEMBALI')";
-        sql = String.format(sql,id.getText(),pinjam.getText(),kembali.getText(),bukukembali.getText());
+        String sql = "INSERT INTO `pengembalian`(`id`, `id_pinjam`, `tgl_kembali`, `jml_kembali`, `status`, `denda`) VALUES ('%s','%s','%s','%s','SUDAH KEMBALI', '%s')";
+        sql = String.format(sql,id.getText(),pinjam.getText(),kembali.getText(),bukukembali.getText(),denda.getText());
         System.out.print(sql);
         DB.insert(sql);
     }
@@ -84,7 +95,7 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
 "A.tgl_harus_kembali,\n" +                
 "B.judul,\n" +
 "c.nama,\n" +
-"IF(DATE(NOW())>A.tgl_harus_kembali,\"5000\",\"0\") AS DENDA\n" +                
+"IF(DATE(NOW())>A.tgl_harus_kembali,\"5000\",\"Tepat Waktu\") AS DENDA\n" +                
 "FROM \n" +
 "peminjaman A\n" +
 "INNER JOIN buku B ON a.id_buku=b.id\n" +
@@ -97,7 +108,7 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
         jTextField1.setText(getData.getString("tgl_harus_kembali"));
         status.setText(getData.getString("status"));
         siswa.setText(getData.getString("nama"));
-        jTextField2.setText(getData.getString("denda"));
+        denda.setText(getData.getString("denda"));
     }
     }    
     public PENGEMBALIAN() {
@@ -109,6 +120,8 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(PENGEMBALIAN.class.getName()).log(Level.SEVERE, null, ex);
             }
+        Locale locale = new Locale ("id", "ID"); 
+        Locale.setDefault(locale);             
     }
 
     /**
@@ -144,7 +157,7 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        denda = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("PENGEMBALIAN");
@@ -243,7 +256,7 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
         jTextField1.setEditable(false);
 
         jLabel9.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel9.setText("Denda");
+        jLabel9.setText("Status Pengembalian/Denda");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -283,17 +296,17 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(bukukembali, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(bukukembali, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                    .addComponent(jTextField1)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel9))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(status, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                    .addComponent(jTextField2))))
+                                    .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(denda))))
                         .addGap(28, 28, 28)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -344,10 +357,10 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
                                 .addGap(1, 1, 1)
                                 .addComponent(jLabel7))
                             .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(denda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(48, 48, 48)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -382,6 +395,7 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
             Logger.getLogger(KATEGORI.class.getName()).log(Level.SEVERE, null, ex);
         }
         JOptionPane.showMessageDialog(null, "DATA BERHASIL DI SIMPAN");
+        clear();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -393,6 +407,7 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
             Logger.getLogger(KATEGORI.class.getName()).log(Level.SEVERE, null, ex);
         }
         JOptionPane.showMessageDialog(null, "DATA BERHASIL DI UBAH");
+        clear();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -404,6 +419,7 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
             Logger.getLogger(KATEGORI.class.getName()).log(Level.SEVERE, null, ex);
         }
         JOptionPane.showMessageDialog(null, "DATA BERHASIL DI DELETE");
+        clear();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void pinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pinjamActionPerformed
@@ -462,6 +478,7 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField buku;
     private javax.swing.JTextField bukukembali;
+    private javax.swing.JTextField denda;
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -480,7 +497,6 @@ public class PENGEMBALIAN extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField kembali;
     private javax.swing.JTextField pinjam;
     private javax.swing.JTextField siswa;
