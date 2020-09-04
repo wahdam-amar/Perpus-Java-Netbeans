@@ -30,7 +30,7 @@ public class MENU extends javax.swing.JFrame {
         jLabel1.setText(PERPUSTAKAAN.name); //nama
         jLabel2.setText(PERPUSTAKAAN.alamat);
         jLabel3.setText(PERPUSTAKAAN.npsn);
-                        Locale locale = new Locale ("id", "ID"); 
+        Locale locale = new Locale ("id", "ID"); 
         Locale.setDefault(locale); 
     }
 
@@ -65,6 +65,7 @@ public class MENU extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -211,6 +212,14 @@ public class MENU extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem11);
 
+        jMenuItem12.setText("DATA BUKU");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem12);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -328,15 +337,20 @@ public class MENU extends javax.swing.JFrame {
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
-        cetak.cetak("PENGEMBALIAN");
+        new LAPORAN_PENGEMBALIAN().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
-
-
-        cetak.cetak("LAPORAN_DATA_ANGGOTA");
+        new LAPORAN_ANGGOTA().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        cetak.cetak("LAPORAN_BUKU");
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -387,6 +401,7 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem2;

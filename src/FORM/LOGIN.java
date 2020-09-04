@@ -40,7 +40,7 @@ public class LOGIN extends javax.swing.JFrame {
     
     public void btnLogin(){
         ResultSet rs = DB.select("admin", "*", "username='"+getjTextField1()+"' and password='"+getjPasswordField1()+"'");
-        System.out.print(getjTextField1()+" "+getjPasswordField1());
+        //System.out.print(getjTextField1()+" "+getjPasswordField1());
         try {
             if(rs.next()){
                 if(getjTextField1().equals(rs.getString("username")) && getjPasswordField1().equals(rs.getString("password"))){

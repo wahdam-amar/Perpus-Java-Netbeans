@@ -8,6 +8,7 @@ package FORM;
 import UTIL.DB;
 import UTIL.REPORT;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -44,6 +45,8 @@ DB DB= new DB();
     public LAPORAN_PEMINJAMAN() {
         initComponents();
         DB.start();
+        Locale locale = new Locale ("id", "ID"); 
+        Locale.setDefault(locale); 
     }
 
     /**

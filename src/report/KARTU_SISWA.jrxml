@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="55908c95-cac2-4cf0-b5f4-038fec12488a">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.x" value="69"/>
+	<property name="ireport.y" value="446"/>
 	<parameter name="ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
 	</parameter>
@@ -56,28 +56,28 @@ WHERE id=$P{ID}]]>
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="203" splitType="Stretch">
+		<band height="474" splitType="Stretch">
 			<rectangle>
-				<reportElement x="10" y="6" width="533" height="189" uuid="5df7ded4-d74d-44ae-8c32-fee9609d9257"/>
+				<reportElement x="21" y="47" width="520" height="311" uuid="5df7ded4-d74d-44ae-8c32-fee9609d9257"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="34" y="61" width="103" height="20" uuid="7b089aef-57b6-449e-8256-4993901988a4"/>
+				<reportElement x="94" y="61" width="43" height="20" uuid="7b089aef-57b6-449e-8256-4993901988a4"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID	]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="34" y="108" width="103" height="20" uuid="cd66059a-9ebb-4552-a441-db82f14242bf"/>
+				<reportElement x="94" y="108" width="68" height="20" uuid="cd66059a-9ebb-4552-a441-db82f14242bf"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NAMA ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="34" y="155" width="103" height="20" uuid="1d95328e-ca10-4567-b7ef-a86d0943536b"/>
+				<reportElement x="94" y="155" width="60" height="20" uuid="1d95328e-ca10-4567-b7ef-a86d0943536b"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[KELAS]]></text>
 			</staticText>
@@ -100,10 +100,99 @@ WHERE id=$P{ID}]]>
 				<reportElement x="195" y="155" width="100" height="20" uuid="b83b5439-8e13-47f0-a883-900c29ed5f88"/>
 				<textFieldExpression><![CDATA[$F{kelas}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="94" y="193" width="60" height="20" uuid="392ad99d-fdd5-45a4-9ffe-716671556d7f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="94" y="238" width="76" height="20" uuid="deb64402-a85e-4739-b87c-bfbe38820e76"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WALI KELAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="61" width="6" height="20" uuid="ae4dd8df-07a2-48a5-9c6e-a3a52bcdef6d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="108" width="6" height="20" uuid="25bfdab2-f43e-4ca7-842a-6f6a1b72e299"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="155" width="6" height="20" uuid="78a76620-4d00-4205-9544-63f7b0532a05"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="193" width="6" height="20" uuid="6d3e2777-d920-4faf-bfd8-137acfc0c9d8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="238" width="6" height="20" uuid="d8676970-d0af-4c94-a3f1-ca126d03dc4f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="274" width="76" height="20" uuid="43cf9004-e26d-45b0-834f-a80d1a9fe5e7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CATATAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="301" width="418" height="20" uuid="25f58ec4-658b-43b4-8751-35adbf5492ee"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KARTU INI BERLAKU SELAMA MENJADI SISWA/SISWI SMPN 23 DEPOK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="33" y="321" width="447" height="20" uuid="aa5b5cd1-950d-4973-b5ed-2412dc8a1c3d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JIKA ADA YANG MENEMUKAN KARTU INI, SILAHKAN HUB. WALI KELAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="367" width="39" height="20" uuid="e88451f6-98e8-4d8a-b860-223b1bf6316d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPOK, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="440" width="146" height="17" uuid="4c25f54d-8c82-4ba2-ad4f-cfaf1dbd3aaf"/>
+				<text><![CDATA[KEPALA PERPUSTAKAAN]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="414" y="366" width="127" height="20" uuid="74a43728-dd05-4af3-9366-ce0cbf40671f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="365" y="457" width="163" height="17" uuid="ce74f4fb-56f1-4634-b6e6-3fa32e2e3ed7"/>
+				<text><![CDATA[ASEP ENANG MULYANA, S.Pd]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="94" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="54" splitType="Stretch"/>

@@ -20,6 +20,7 @@ import UTIL.DB;
 import UTIL.REPORT;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 /**
  *
@@ -108,6 +109,8 @@ public class PEMINJAMAN extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(PEMINJAMAN.class.getName()).log(Level.SEVERE, null, ex);
         }
+        Locale locale = new Locale ("id", "ID"); 
+        Locale.setDefault(locale); 
     }
 
     /**

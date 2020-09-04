@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="15aeaddd-b653-40fe-a0e6-73a4e67fd304">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="442"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="ID" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT a.id, b.nama, c.judul, a.jumlah_pinjam, a.tgl_pinjam FROM peminjaman a inner join siswa b on a.id_siswa=b.id inner JOIN buku c ON c.id=a.id_buku
@@ -41,18 +41,18 @@ WHERE a.id=$P{ID}]]>
 		<band splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="518" splitType="Stretch">
+		<band height="539" splitType="Stretch">
 			<staticText>
-				<reportElement x="10" y="54" width="138" height="20" uuid="aab79821-1411-4ca2-bece-f21bacea1045"/>
+				<reportElement x="40" y="54" width="138" height="20" uuid="aab79821-1411-4ca2-bece-f21bacea1045"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NAMA ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="93" width="138" height="20" uuid="8f35df1a-8820-42b4-b85b-3fbc225e4409"/>
+				<reportElement x="40" y="93" width="138" height="20" uuid="8f35df1a-8820-42b4-b85b-3fbc225e4409"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[ID PEMINJAMAN]]></text>
 			</staticText>
@@ -65,9 +65,9 @@ WHERE a.id=$P{ID}]]>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="10" y="134" width="138" height="20" uuid="499dad07-623c-4c96-9aa6-40520e8a55af"/>
+				<reportElement x="40" y="134" width="138" height="20" uuid="499dad07-623c-4c96-9aa6-40520e8a55af"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[BUKU]]></text>
 			</staticText>
@@ -79,9 +79,9 @@ WHERE a.id=$P{ID}]]>
 				<text><![CDATA[BUKTI PEMINJAMAN BUKU]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="172" width="138" height="20" uuid="e8d613dd-3253-4503-9b45-a64cdc2893d4"/>
+				<reportElement x="40" y="172" width="138" height="20" uuid="e8d613dd-3253-4503-9b45-a64cdc2893d4"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[JUMLAH ]]></text>
 			</staticText>
@@ -93,60 +93,99 @@ WHERE a.id=$P{ID}]]>
 				<text><![CDATA[DEPOK, ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="208" width="138" height="20" uuid="f298f775-4a48-4e18-b5f7-7f471615276e"/>
+				<reportElement x="40" y="208" width="138" height="20" uuid="f298f775-4a48-4e18-b5f7-7f471615276e"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TANGGAL PINJAM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="241" width="192" height="20" uuid="13f20a0c-5bcc-40a8-a3ca-8b214b4008d9"/>
+				<reportElement x="40" y="241" width="169" height="20" uuid="13f20a0c-5bcc-40a8-a3ca-8b214b4008d9"/>
 				<textElement>
-					<font size="14" isBold="true"/>
+					<font size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[TANGGAL HARUS KEMBALI]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="14" y="295" width="100" height="20" uuid="e7ef29cb-c6e1-46fe-8147-3df2935e2c72"/>
+				<reportElement x="40" y="274" width="100" height="20" uuid="e7ef29cb-c6e1-46fe-8147-3df2935e2c72"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[CATATAN : ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="14" y="315" width="345" height="18" uuid="51852a17-99b2-44ec-b70c-bb5f0c00ff01"/>
+				<reportElement x="40" y="294" width="460" height="18" uuid="51852a17-99b2-44ec-b70c-bb5f0c00ff01"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
-				<text><![CDATA[1. PENGEMBALIAN MELEWATI TANGGAL AKAN DIKENAKAN DENDA]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="14" y="339" width="345" height="20" uuid="1037da56-180e-422b-9b09-f8a739de596b"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[2. MENGHILANGKAN/MERUSAK BUKU AKAN DIKENAKAN DENDA]]></text>
+				<text><![CDATA[1. PENGEMBALIAN MELEWATI TANGGAL AKAN DIKENAKAN DENDA SEBESAR RP.5000]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="191" y="93" width="100" height="20" uuid="6a60f354-df04-42d3-a7ca-dca8bbf6add3"/>
+				<reportElement x="246" y="93" width="100" height="20" uuid="6a60f354-df04-42d3-a7ca-dca8bbf6add3"/>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="191" y="54" width="100" height="20" uuid="4455e1f3-7694-4b3d-a228-dac0c2104d03"/>
+				<reportElement x="246" y="54" width="100" height="20" uuid="4455e1f3-7694-4b3d-a228-dac0c2104d03"/>
 				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="191" y="134" width="100" height="20" uuid="d7872dcd-e349-44dc-9602-9f68b459f184"/>
+				<reportElement x="246" y="134" width="100" height="20" uuid="d7872dcd-e349-44dc-9602-9f68b459f184"/>
 				<textFieldExpression><![CDATA[$F{judul}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="191" y="172" width="100" height="20" uuid="84bd8cda-5638-4f0c-a377-c81d431fe44c"/>
+				<reportElement x="246" y="172" width="100" height="20" uuid="84bd8cda-5638-4f0c-a377-c81d431fe44c"/>
 				<textFieldExpression><![CDATA[$F{jumlah_pinjam}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="191" y="208" width="100" height="20" uuid="f2c8dc62-1c4b-486b-b158-0d079f512b3c"/>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="246" y="208" width="100" height="20" uuid="f2c8dc62-1c4b-486b-b158-0d079f512b3c"/>
 				<textFieldExpression><![CDATA[$F{tgl_pinjam}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="389" y="505" width="163" height="17" uuid="1b93f0ae-6c99-4611-b827-e5b6e59bcda1"/>
+				<text><![CDATA[ASEP ENANG MULYANA, S.Pd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="54" width="16" height="20" uuid="424923d8-8960-4cd1-892c-10d2233fcbed"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="93" width="16" height="20" uuid="a2a436f5-2263-4ad6-a00a-2e33f7382e28"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="134" width="16" height="20" uuid="a74d65a1-18f6-4daf-959f-7a5f170e720f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="172" width="16" height="20" uuid="0763e858-a8bd-4871-ae7f-9ca8ab1166c1"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="208" width="16" height="20" uuid="31760eff-1a4e-48d0-800d-ef309708b016"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="241" width="16" height="20" uuid="c44a7f26-4e61-411d-9a75-4e610f0d09ac"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<columnFooter>

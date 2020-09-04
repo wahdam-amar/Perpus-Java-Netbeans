@@ -110,7 +110,7 @@ public class SISWA extends javax.swing.JFrame {
     }
     
     private void setTable(){
-        rs = DB.select("siswa", "id,nama,alamat,kelas,jenis_kelamin,nis,telp,tmpt_tgl_lahir,id_wali","id='"+search()+"' or nama like'%"+search()+"%'");
+        rs = DB.select("siswa", "id,nama,alamat,kelas,jenis_kelamin,nis,telp,tmpt_tgl_lahir,(SELECT nama from wali_kelas where id=id_wali)id_wali","id='"+search()+"' or nama like'%"+search()+"%'");
         try {
 
         jTable2.setModel(DB.buildTableModel(rs));
