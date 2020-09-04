@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2020 at 10:25 AM
+-- Generation Time: Sep 04, 2020 at 06:42 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -43,7 +43,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `nama`, `password`, `email`, `telepon`, `alamat`) VALUES
-(1, 'admin', 'admin', '123456', 'admin@gmail.com', '08990904339', 'depok');
+(1, 'admin', 'admin', '123456', 'admin@gmail.com', '08990904339', 'depok'),
+(3, 'amar', 'amar', '123456', 'wahdam@gmail.com', '08987837687', 'Depok');
 
 -- --------------------------------------------------------
 
@@ -61,6 +62,15 @@ CREATE TABLE `buku` (
   `sumber_dana` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `buku`
+--
+
+INSERT INTO `buku` (`id`, `judul`, `id_kategori`, `pengarang`, `penerbit`, `thn_terbit`, `sumber_dana`) VALUES
+(1, 'SUTASOMA', 1, '1', '1', '2020-08-28', '1'),
+(2, 'MAPALA', 1, '1', '1', '2020-08-06', '1'),
+(3, 'KAKAKKA', 1, '1', '1', '2020-08-06', '1');
+
 -- --------------------------------------------------------
 
 --
@@ -72,6 +82,14 @@ CREATE TABLE `kategori` (
   `nama` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id`, `nama`) VALUES
+(1, 'pelajaran'),
+(2, 'pengetahuan');
+
 -- --------------------------------------------------------
 
 --
@@ -82,10 +100,19 @@ CREATE TABLE `peminjaman` (
   `id` int(10) NOT NULL,
   `jumlah_pinjam` int(10) NOT NULL,
   `tgl_pinjam` date NOT NULL,
+  `tgl_harus_kembali` date NOT NULL,
   `id_buku` int(10) NOT NULL,
   `id_siswa` int(10) NOT NULL,
   `status` varchar(100) NOT NULL DEFAULT 'BELUM KEMBALI'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `peminjaman`
+--
+
+INSERT INTO `peminjaman` (`id`, `jumlah_pinjam`, `tgl_pinjam`, `tgl_harus_kembali`, `id_buku`, `id_siswa`, `status`) VALUES
+(1, 3, '2020-09-02', '2020-09-09', 1, 1, 'SUDAH KEMBALI'),
+(2, 1, '2020-09-01', '2020-09-03', 2, 1, 'SUDAH KEMBALI');
 
 -- --------------------------------------------------------
 
@@ -98,6 +125,13 @@ CREATE TABLE `penerbit` (
   `nama` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `penerbit`
+--
+
+INSERT INTO `penerbit` (`id`, `nama`) VALUES
+(1, 'MAJAPAHIT');
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +142,13 @@ CREATE TABLE `pengarang` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengarang`
+--
+
+INSERT INTO `pengarang` (`id`, `nama`) VALUES
+(1, 'AMAR');
 
 -- --------------------------------------------------------
 
@@ -120,8 +161,17 @@ CREATE TABLE `pengembalian` (
   `id_pinjam` int(10) NOT NULL,
   `tgl_kembali` date NOT NULL DEFAULT current_timestamp(),
   `jml_kembali` int(10) NOT NULL,
-  `status` varchar(100) NOT NULL
+  `status` varchar(100) NOT NULL,
+  `denda` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengembalian`
+--
+
+INSERT INTO `pengembalian` (`id`, `id_pinjam`, `tgl_kembali`, `jml_kembali`, `status`, `denda`) VALUES
+(1, 1, '2020-09-02', 3, 'SUDAH KEMBALI', 'Tepat Waktu'),
+(2, 2, '2020-09-04', 1, 'SUDAH KEMBALI', '5000');
 
 -- --------------------------------------------------------
 
@@ -161,6 +211,34 @@ CREATE TABLE `siswa` (
   `id_wali` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `siswa`
+--
+
+INSERT INTO `siswa` (`id`, `nama`, `alamat`, `kelas`, `jenis_kelamin`, `nis`, `telp`, `tmpt_tgl_lahir`, `id_wali`) VALUES
+(1, 'SINDANG', 'DEPOK', '9', 'LAKI LAKI', 8768782222, '8762872', '2020-08-13', 1),
+(2, 'TEGAR', 'BEJI', '9-C', 'LAKI - LAKI', 1234523, '864833234', '2000-08-08', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `id` int(10) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `harga` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`id`, `status`, `harga`) VALUES
+(1, 'LEWAT', 5000),
+(2, 'HILANG', 20000);
+
 -- --------------------------------------------------------
 
 --
@@ -171,6 +249,13 @@ CREATE TABLE `sumber_dana` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sumber_dana`
+--
+
+INSERT INTO `sumber_dana` (`id`, `nama`) VALUES
+(1, 'RAJA');
 
 -- --------------------------------------------------------
 
@@ -185,6 +270,13 @@ CREATE TABLE `wali_kelas` (
   `alamat` text NOT NULL,
   `jenis_kelamin` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `wali_kelas`
+--
+
+INSERT INTO `wali_kelas` (`id`, `nama`, `kelas`, `alamat`, `jenis_kelamin`) VALUES
+(1, 'SAYUTI', '9-C', 'DEPOK', 'PEREMPUAN');
 
 --
 -- Indexes for dumped tables
@@ -248,6 +340,13 @@ ALTER TABLE `siswa`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- Indexes for table `sumber_dana`
 --
 ALTER TABLE `sumber_dana`
@@ -279,7 +378,7 @@ ALTER TABLE `buku`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `peminjaman`
@@ -315,6 +414,12 @@ ALTER TABLE `sekolah`
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
