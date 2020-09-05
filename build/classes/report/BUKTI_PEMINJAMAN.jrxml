@@ -2,10 +2,11 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="15aeaddd-b653-40fe-a0e6-73a4e67fd304">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="104"/>
 	<parameter name="ID" class="java.lang.String"/>
+	<parameter name="gambar" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT a.id, b.nama, c.judul, a.jumlah_pinjam, a.tgl_pinjam FROM peminjaman a inner join siswa b on a.id_siswa=b.id inner JOIN buku c ON c.id=a.id_buku
+		<![CDATA[SELECT a.id, b.nama, c.judul, a.jumlah_pinjam, a.tgl_pinjam,a.tgl_harus_kembali FROM peminjaman a inner join siswa b on a.id_siswa=b.id inner JOIN buku c ON c.id=a.id_buku
 WHERE a.id=$P{ID}]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
@@ -23,6 +24,9 @@ WHERE a.id=$P{ID}]]>
 	<field name="tgl_pinjam" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="tgl_harus_kembali" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -30,7 +34,7 @@ WHERE a.id=$P{ID}]]>
 		<band height="79" splitType="Stretch">
 			<image>
 				<reportElement x="84" y="1" width="390" height="78" uuid="2f2a43c6-9ef3-481f-a329-55a76457d67d"/>
-				<imageExpression><![CDATA[getClass().getResource("/IMAGES/Capture.jpg").openStream()]]></imageExpression>
+				<imageExpression><![CDATA[$P{gambar}]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -136,7 +140,7 @@ WHERE a.id=$P{ID}]]>
 				<reportElement x="246" y="172" width="100" height="20" uuid="84bd8cda-5638-4f0c-a377-c81d431fe44c"/>
 				<textFieldExpression><![CDATA[$F{jumlah_pinjam}]]></textFieldExpression>
 			</textField>
-			<textField pattern="dd/MM/yyyy">
+			<textField pattern="dd MMMMM yyyy">
 				<reportElement x="246" y="208" width="100" height="20" uuid="f2c8dc62-1c4b-486b-b158-0d079f512b3c"/>
 				<textFieldExpression><![CDATA[$F{tgl_pinjam}]]></textFieldExpression>
 			</textField>
@@ -186,6 +190,10 @@ WHERE a.id=$P{ID}]]>
 				</textElement>
 				<text><![CDATA[:]]></text>
 			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="246" y="241" width="100" height="20" uuid="513b1d8f-73c5-4ec0-bda2-7f3bf5f34502"/>
+				<textFieldExpression><![CDATA[$F{tgl_harus_kembali}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<columnFooter>

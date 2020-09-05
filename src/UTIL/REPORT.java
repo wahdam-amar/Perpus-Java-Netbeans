@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -32,10 +33,13 @@ import net.sf.jasperreports.view.JasperViewer;
 
 
 public class REPORT {
-Connection conn1 = null ;
+    Connection conn1 = null ;
     ResultSet rs = null;
     PreparedStatement pst = null;
     String tgl;
+    
+    
+    
 
 public void cetak(String path){
       //public Fungsi_Cetak(String namaReport);
@@ -64,9 +68,12 @@ public void cetak(String path, String param){
       //public Fungsi_Cetak(String namaReport);
       //conn1 = Koneksi.KoneksiDB.ConnectDb();
           try{
+               ImageIcon imageIcon = new ImageIcon(getClass().getResource("/IMAGES/Capture.jpg"));
+                
                 String namaFile = "/report/"+path+".jasper";
                 HashMap hash = new HashMap();
                 hash.put("ID", param);
+                hash.put("gambar", imageIcon.toString());
                 //File file = new File(namaFile);
                 
                //JasperReport jasperReport = (JasperReport)JRLoader.loadObject(file.getPath());
@@ -90,6 +97,6 @@ public void cetak(String path, String param){
 
     public static void main(String args[]) {
         DB.start();
-        
+        System.out.print("");
     }
 }

@@ -3,6 +3,8 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="gambar" class="java.lang.String"/>
+	<parameter name="ID" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT a.id, a.judul, d.nama as pengarang, c.nama as penerbit, b.nama as kategori, a.thn_terbit FROM buku a INNER JOIN kategori b on a.id_kategori=b.id INNER JOIN penerbit c on a.penerbit=c.id INNER JOIN pengarang d on a.pengarang=d.id]]>
 	</queryString>
@@ -22,72 +24,126 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="115" y="3" width="328" height="76" uuid="cb8b0f7f-9c13-4915-9b3d-f6a8c942327e"/>
+				<imageExpression><![CDATA[$P{gambar}]]></imageExpression>
+			</image>
+		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="113" y="0" width="330" height="40" uuid="6da120c6-0a58-407e-88db-294faaa2fd21"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN DATA BUKU]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="30" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="92" height="20" uuid="e1ffd2ad-98a6-4607-bf57-fd0039d7f235"/>
-				<text><![CDATA[id]]></text>
+				<reportElement x="4" y="0" width="92" height="20" uuid="e1ffd2ad-98a6-4607-bf57-fd0039d7f235"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID BUKU]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="92" y="0" width="92" height="20" uuid="29f0df6a-e450-402e-912c-879f8ed62c3c"/>
-				<text><![CDATA[judul]]></text>
+				<reportElement x="96" y="0" width="92" height="20" uuid="29f0df6a-e450-402e-912c-879f8ed62c3c"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[JUDUL]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="184" y="0" width="92" height="20" uuid="dcec20dd-445b-4ea3-bb23-a5720e977a16"/>
-				<text><![CDATA[pengarang]]></text>
+				<reportElement x="188" y="0" width="92" height="20" uuid="dcec20dd-445b-4ea3-bb23-a5720e977a16"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[PENGARANG]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="276" y="0" width="92" height="20" uuid="6860294b-249a-43e8-9a52-a5007da32171"/>
-				<text><![CDATA[penerbit]]></text>
+				<reportElement x="280" y="0" width="92" height="20" uuid="6860294b-249a-43e8-9a52-a5007da32171"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[PENERBIT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="368" y="0" width="92" height="20" uuid="c9e66c78-ea64-4b8c-986c-2a521af8f2bd"/>
-				<text><![CDATA[kategori]]></text>
+				<reportElement x="372" y="0" width="92" height="20" uuid="c9e66c78-ea64-4b8c-986c-2a521af8f2bd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[KATEGORI]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="460" y="0" width="92" height="20" uuid="f5fc9563-381e-48b8-a64f-11eae0cc4872"/>
-				<text><![CDATA[thn_terbit]]></text>
+				<reportElement x="464" y="0" width="92" height="20" uuid="f5fc9563-381e-48b8-a64f-11eae0cc4872"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[TAHUN TERBIT]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="28" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="92" height="20" uuid="f4b463a2-b6e8-4cb5-85c7-45901f78b260"/>
+				<reportElement x="3" y="0" width="92" height="20" uuid="f4b463a2-b6e8-4cb5-85c7-45901f78b260"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="92" y="0" width="92" height="20" uuid="8ff2ebb8-ac34-4924-b5f0-cbd8d6292766"/>
+				<reportElement x="96" y="0" width="92" height="20" uuid="8ff2ebb8-ac34-4924-b5f0-cbd8d6292766"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{judul}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="184" y="0" width="92" height="20" uuid="7229b912-0e43-4dd5-b477-f9f538ce1109"/>
+				<reportElement x="188" y="0" width="92" height="20" uuid="7229b912-0e43-4dd5-b477-f9f538ce1109"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{pengarang}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="276" y="0" width="92" height="20" uuid="25588b06-4347-420e-b1c4-12d08516e72e"/>
+				<reportElement x="280" y="0" width="92" height="20" uuid="25588b06-4347-420e-b1c4-12d08516e72e"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{penerbit}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="368" y="0" width="92" height="20" uuid="085411a2-4f4a-493f-95d2-1810a609d4c2"/>
+				<reportElement x="372" y="0" width="92" height="20" uuid="085411a2-4f4a-493f-95d2-1810a609d4c2"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{kategori}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="460" y="0" width="92" height="20" uuid="d6d893e0-31b5-4f67-be69-0512661775bc"/>
+			<textField pattern="dd-MMM-yy">
+				<reportElement x="464" y="0" width="92" height="20" uuid="d6d893e0-31b5-4f67-be69-0512661775bc"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{thn_terbit}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="5" y="23" width="550" height="1" uuid="74d865da-d0d2-4343-a563-96ddfbf28a8b"/>
+			</line>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="154" splitType="Stretch">
+			<staticText>
+				<reportElement x="386" y="0" width="39" height="20" uuid="954a4510-319a-4fed-90d6-79b0ab3de792"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DEPOK, ]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="435" y="0" width="127" height="20" uuid="da3af710-5cac-46c2-9811-56dadd39b2e6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="386" y="132" width="163" height="17" uuid="d0076b48-b2ba-4f7b-80fd-b96741577a68"/>
+				<text><![CDATA[ASEP ENANG MULYANA, S.Pd]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="115" width="146" height="17" uuid="b89126ce-d349-4390-b553-551cca379a26"/>
+				<text><![CDATA[KEPALA PERPUSTAKAAN]]></text>
+			</staticText>
+		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="235" y="34" width="100" height="20" uuid="8c167709-a387-4a40-b5a7-18dc21e4a444"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>

@@ -43,7 +43,6 @@ public class MENU extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem1 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -56,6 +55,7 @@ public class MENU extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -66,8 +66,6 @@ public class MENU extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
-
-        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MENU");
@@ -96,7 +94,7 @@ public class MENU extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu4);
 
-        jMenu1.setText("INPUT");
+        jMenu1.setText("INPUT BUKU");
 
         jMenuItem3.setText("KATEGORI BUKU");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -143,13 +141,17 @@ public class MENU extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
+        jMenuBar1.add(jMenu1);
+
+        jMenu5.setText("INPUT ANGGOTA");
+
         jMenuItem15.setText("SISWA");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem15ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem15);
+        jMenu5.add(jMenuItem15);
 
         jMenuItem14.setText("WALI KELAS");
         jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
@@ -157,9 +159,9 @@ public class MENU extends javax.swing.JFrame {
                 jMenuItem14ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem14);
+        jMenu5.add(jMenuItem14);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenu5);
 
         jMenu2.setText("PROSES");
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
@@ -332,24 +334,24 @@ public class MENU extends javax.swing.JFrame {
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
         new LAPORAN_PEMINJAMAN().setVisible(true);
-        this.dispose();
+       
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
         new LAPORAN_PENGEMBALIAN().setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
         new LAPORAN_ANGGOTA().setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
-        cetak.cetak("LAPORAN_BUKU");
+        cetak.cetak("LAPORAN_BUKU","1");
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
     /**
@@ -384,6 +386,7 @@ public class MENU extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MENU().setVisible(true);
+                 System.out.print(this.getClass().getResource("/IMAGES/Capture.jpg"));
             }
         });
     }
@@ -397,8 +400,8 @@ public class MENU extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
