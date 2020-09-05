@@ -438,6 +438,7 @@ public class SISWA extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
             // TODO add your handling code here:
+            System.out.print(id.getText());
             cetak.cetak("KARTU_SISWA", id.getText());
     }//GEN-LAST:event_jButton5ActionPerformed
 
