@@ -84,7 +84,7 @@ public void cetak(String path, String param){
             JasperViewer.viewReport(jasperPrint, false);      
             }
             catch(JRException ex){
-               // JOptionPane.showMessageDialog(rootPane,"Dokumen Tidak Ada");
+//                JOptionPane.showMessageDialog(rootPane,ex.toString());
                 System.out.print(ex);
             }
            
@@ -92,7 +92,7 @@ public void cetak(String path, String param){
     }
 
     public REPORT() {
-        System.out.print("ASD");
+        
     }
 
     public static void main(String args[]) {

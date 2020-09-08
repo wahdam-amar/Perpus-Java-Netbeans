@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="75b207ea-4b96-42d4-a59e-dec2c7ce8d45">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="191"/>
+	<property name="ireport.y" value="200"/>
 	<parameter name="ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -145,30 +145,30 @@ where $P!{ID}]]>
 	<columnFooter>
 		<band height="168" splitType="Stretch">
 			<staticText>
-				<reportElement x="376" y="12" width="39" height="20" uuid="8730e64f-e978-45dd-a543-09fe116ce49a"/>
+				<reportElement x="361" y="12" width="54" height="20" uuid="8730e64f-e978-45dd-a543-09fe116ce49a"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[DEPOK, ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="376" y="127" width="146" height="17" uuid="6cd5bb6b-bd04-47a6-9d0f-14d6ab385f87"/>
+				<reportElement x="361" y="127" width="161" height="17" uuid="6cd5bb6b-bd04-47a6-9d0f-14d6ab385f87"/>
 				<text><![CDATA[KEPALA PERPUSTAKAAN]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="425" y="12" width="127" height="20" uuid="99599c27-f240-4701-be01-c9fe62973af9"/>
+				<reportElement x="410" y="12" width="142" height="20" uuid="99599c27-f240-4701-be01-c9fe62973af9"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="376" y="144" width="163" height="17" uuid="f3cea8c3-52ea-4bb6-aa7f-444a68bfa93e"/>
+				<reportElement x="361" y="144" width="178" height="17" uuid="f3cea8c3-52ea-4bb6-aa7f-444a68bfa93e"/>
 				<text><![CDATA[ASEP ENANG MULYANA, S.Pd]]></text>
 			</staticText>
 		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="197" splitType="Stretch">
+		<band height="77" splitType="Stretch">
 			<textField>
-				<reportElement x="232" y="177" width="100" height="20" uuid="ce2e436c-10d0-49b3-a861-b0d874249a16"/>
+				<reportElement x="259" y="45" width="41" height="20" uuid="ce2e436c-10d0-49b3-a861-b0d874249a16"/>
 				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>

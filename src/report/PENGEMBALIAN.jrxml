@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="15d83cc5-1765-46ef-9f99-f3fb9ff73e01">
 	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="69"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="57"/>
 	<parameter name="ID" class="java.lang.String"/>
 	<parameter name="gambar" class="java.lang.String"/>
@@ -147,22 +147,22 @@ where $P!{ID}]]>
 	<columnFooter>
 		<band height="138" splitType="Stretch">
 			<staticText>
-				<reportElement x="386" y="1" width="39" height="20" uuid="33fef51e-d9b0-44b0-87e0-1f377d58af66"/>
+				<reportElement x="368" y="1" width="50" height="20" uuid="33fef51e-d9b0-44b0-87e0-1f377d58af66"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[DEPOK, ]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="435" y="1" width="127" height="20" uuid="5bc99894-e453-4b04-99cc-0dcefdae91a6"/>
+				<reportElement x="417" y="1" width="138" height="20" uuid="5bc99894-e453-4b04-99cc-0dcefdae91a6"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="386" y="115" width="163" height="17" uuid="acb1487e-82a9-4392-bd6f-6a346d544357"/>
+				<reportElement x="368" y="115" width="174" height="17" uuid="acb1487e-82a9-4392-bd6f-6a346d544357"/>
 				<text><![CDATA[ASEP ENANG MULYANA, S.Pd]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="386" y="98" width="146" height="17" uuid="61444b73-5e35-4311-8264-70ee544614d8"/>
+				<reportElement x="368" y="98" width="157" height="17" uuid="61444b73-5e35-4311-8264-70ee544614d8"/>
 				<text><![CDATA[KEPALA PERPUSTAKAAN]]></text>
 			</staticText>
 		</band>
@@ -170,7 +170,7 @@ where $P!{ID}]]>
 	<pageFooter>
 		<band height="54" splitType="Stretch">
 			<textField>
-				<reportElement x="222" y="17" width="100" height="20" uuid="be68133a-da06-4ca8-ae3a-155bcc2500c1"/>
+				<reportElement x="276" y="14" width="20" height="20" uuid="be68133a-da06-4ca8-ae3a-155bcc2500c1"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>

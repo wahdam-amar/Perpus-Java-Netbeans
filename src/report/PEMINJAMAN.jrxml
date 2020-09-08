@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9cdba60b-5868-4095-bab8-0de50484e3fc">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="231"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="ID" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -179,22 +179,22 @@ where $P!{ID}]]>
 	<columnFooter>
 		<band height="156" splitType="Stretch">
 			<staticText>
-				<reportElement x="386" y="4" width="39" height="20" uuid="5fcc7b06-a825-450f-960f-1cd3351f6e2e"/>
+				<reportElement x="357" y="4" width="74" height="20" uuid="5fcc7b06-a825-450f-960f-1cd3351f6e2e"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[DEPOK, ]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="435" y="4" width="114" height="20" uuid="62e720f7-7b29-4231-9190-da431a180818"/>
+				<reportElement x="406" y="4" width="149" height="20" uuid="62e720f7-7b29-4231-9190-da431a180818"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="386" y="132" width="163" height="17" uuid="d92d73ec-8e10-433d-82c1-4cc120cd32af"/>
+				<reportElement x="357" y="132" width="198" height="17" uuid="d92d73ec-8e10-433d-82c1-4cc120cd32af"/>
 				<text><![CDATA[ASEP ENANG MULYANA, S.Pd]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="386" y="115" width="146" height="17" uuid="75c7b3e1-f3b0-4fdb-8b9c-f678885d2950"/>
+				<reportElement x="357" y="115" width="181" height="17" uuid="75c7b3e1-f3b0-4fdb-8b9c-f678885d2950"/>
 				<text><![CDATA[KEPALA PERPUSTAKAAN]]></text>
 			</staticText>
 		</band>
@@ -206,7 +206,7 @@ where $P!{ID}]]>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="216" y="17" width="100" height="20" uuid="edc7cb37-db3d-425a-ac9d-349a5dd2bc4e"/>
+				<reportElement x="263" y="14" width="24" height="20" uuid="edc7cb37-db3d-425a-ac9d-349a5dd2bc4e"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 		</band>

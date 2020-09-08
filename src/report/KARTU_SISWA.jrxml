@@ -164,7 +164,7 @@ where a.id=$P{ID}]]>
 				<text><![CDATA[KEPALA PERPUSTAKAAN]]></text>
 			</staticText>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="414" y="338" width="127" height="20" uuid="74a43728-dd05-4af3-9366-ce0cbf40671f"/>
+				<reportElement x="414" y="338" width="141" height="20" uuid="74a43728-dd05-4af3-9366-ce0cbf40671f"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>

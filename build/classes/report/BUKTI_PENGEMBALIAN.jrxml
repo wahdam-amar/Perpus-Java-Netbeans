@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4bf2fa01-f2f2-4310-a048-cbe562822f7a">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="81"/>
+	<property name="ireport.y" value="334"/>
 	<parameter name="ID" class="java.lang.String"/>
 	<parameter name="gambar" class="java.lang.String"/>
 	<queryString>
@@ -169,15 +169,15 @@ WHERE B.ID=$P{ID}]]>
 				<text><![CDATA[:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="389" y="433" width="163" height="17" uuid="8abc0f1b-5b46-4389-bf3c-93fdac292477"/>
+				<reportElement x="369" y="433" width="195" height="17" uuid="8abc0f1b-5b46-4389-bf3c-93fdac292477"/>
 				<text><![CDATA[ASEP ENANG MULYANA, S.Pd]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="389" y="416" width="146" height="17" uuid="515c1f2b-3e13-4d00-b5a8-add6eb96f4f5"/>
+				<reportElement x="369" y="416" width="178" height="17" uuid="515c1f2b-3e13-4d00-b5a8-add6eb96f4f5"/>
 				<text><![CDATA[KEPALA PERPUSTAKAAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="394" y="321" width="39" height="20" uuid="60b65a5f-3795-4988-8265-50c4e8c55f14"/>
+				<reportElement x="374" y="321" width="71" height="20" uuid="60b65a5f-3795-4988-8265-50c4e8c55f14"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
@@ -188,7 +188,7 @@ WHERE B.ID=$P{ID}]]>
 				<textFieldExpression><![CDATA[$F{tgl_pinjam}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement x="443" y="321" width="100" height="20" uuid="098d6ac3-00c9-4de6-8f34-377146cb345d"/>
+				<reportElement x="423" y="321" width="132" height="20" uuid="098d6ac3-00c9-4de6-8f34-377146cb345d"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
